@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+	task_1();
+	task_2a();
+
+}
+
+
+int task_2a() {
+	setlocale(LC_CTYPE, "RUS");
+	int mile_1;
+	puts("Введите число морских миль");
+	scanf("%d", &mile_1);
+	printf("%d морских миль это %d километров ", mile_1, mile_1 * 1852);//Переводим морские мили в километры
+	printf("%d морских миль это %d римских миль ", mile_1, mile_1 * 1852 / 1475);//Переводим морские мили в римские
+
+	getchar();
+	return 0;
+
+}
+
+int task_1() {
+	setlocale(LC_CTYPE, "RUS");
+	int num_1, num_2;
+	puts("Введите число A");
+	scanf("%d", &num_1);
+	puts("Введите число B");
+	scanf("%d", &num_2);
+	printf("\nСумма чисел A и B  %d", num_1 + num_2);
+	printf("\nРазность чисел A и B %d", num_1 - num_2);
+	printf("\nПроизведение чисел A и B %d", num_1 * num_2);
+	printf("\nЧастное A от B %d", num_1 / num_2);
+	printf("\nОстаток от деления B на A  %d\n", num_2 % num_1);
+
+	getchar();
+	return 1;
+
+}
