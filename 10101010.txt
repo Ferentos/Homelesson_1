@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+#define e 2.718281
+
+double Funk1(x) {
+    if (x > 3) {
+        return (1 / (pow(x, 3) + 3));
+    } else { return (pow(x, 2) - 3 * x + 9); }
+}
+
+double Funk2(x) {
+    return (x * pow(e, (sin(pow(x, 2)))));
+}
+
+int main() {
+    setlocale(LC_CTYPE, "RUS");
+    double x;
+    char c;
+    printf("введите x\n");
+    scanf ("%lf", &x);
+    Funk2(x);
+    Funk1(x);
+    printf("fa(x)=%lf , fb(x)=%lf \n", Funk1(x), Funk2(x));
+    printf("Действия с функциями * умножить + удвоенное сложение - разность квадратов\n");
+    scanf (" %c", &c);
+    if (c == '*') {
+        printf("%lf", Funk1(x) * Funk2(x));
+    }
+    if (c == '+') {
+        printf("%lf", Funk1(x) + Funk2(x) * 2);
+    }
+    if (c == '-') {
+        printf("%lf", pow(Funk1(x), 2) - pow(Funk2(x), 2));
+    }
+    return 0;
+}

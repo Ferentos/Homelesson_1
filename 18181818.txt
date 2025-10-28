@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+
+#define e 2.718281
+float F1(x) {
+    float F1_res;
+    if (x > 3) {
+        F1_res = 1 / (pow(x, 3) + 3);
+
+    }
+    else { F1_res = (pow(x, 2) - 3 * x + 9);}
+    printf("Решение первой функции %f", F1_res);
+}
+float F2(x) {
+    float F2_res;
+    F2_res = x * pow(e, sin(pow(x, 2)));
+    printf("Решение первой функции %f", F2_res);
+}
+
+int task_10() {
+    setlocale(LC_CTYPE, "RUS");
+    float x;
+    scanf("%f", &x);
+    F1(x);
+    F2(x);
+    return 0;
+}
+
+// код 18
+struct point {
+    float x;
+    float y;
+    char name;
+};
+typedef struct point Point;
+
+void put_point(Point z) {
+    printf("point %c (%.1f, %.1f)", z.name, z.x, z.y);
+    system("pause");
+}
+
+float dist(Point z, Point w) {
+    float AB = sqrt(pow((z.x - w.x), 2) + pow((z.y - w.y), 2));
+    printf("расстояние между точками %.4f", AB);
+}
+
+void new_point(Point z, Point w) {
+    Point n;
+    n.name = 'N'; n.x = (z.x + w.x) / 2; n.y = (z.y + w.y) / 2;
+    printf("Новая точка - середина между точками %c и %c\n", z.name, w.name);
+    printf("point %c (%.1f, %.1f)", n.name, n.x, n.y);
+
+}
+
+void chetver_point(Point z) {
+    printf("координатная четверть точки %c: \n", z.name);
+    if (z.x > 0 && z.y > 0) {
+        printf("1 четверть");
+    }
+    if (z.x > 0 && z.y < 0) {
+        printf("4 четверть");
+    }
+    if (z.x < 0 && z.y < 0) {
+        printf("3 четверть");
+    }
+    if (z.x < 0 && z.y > 0) {
+        printf("2 четверть");
+    }
+
+}
+
+int main() {
+    setlocale(LC_CTYPE, "RUS");
+    Point b, a, c;
+    a = (Point){ 1.f, 2.f, 'A' };
+    b.name = 'B'; b.x = 5;; b.y = -3;// данные точки b
+    c.name = 'C'; c.x = 10; c.y = -5;// данные точки c
+
+    //put_point (b);// функция вывода данных точки
+    //dist(b, c);//  функция вывода декартова расстояния между точками
+    //new_point(b, c);// функция вывода координат новой точки
+    chetver_point(b);// функция 
+    return 0;
+}
